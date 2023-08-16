@@ -33,7 +33,24 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        {process.env.NODE_ENV === "development" && <LiveReload />}
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary({ error }: any) {
+  console.error(error);
+  return (
+    <html lang="en">
+      <head>
+        <title>Oh no!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {error.message}
+        <Scripts />
       </body>
     </html>
   );

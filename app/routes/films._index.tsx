@@ -19,8 +19,7 @@ export const meta: V2_MetaFunction = () => {
 export default function Films() {
   const films = useLoaderData<Film[]>();
   return (
-    <div className="p-16 font-sans border border-cyan-900">
-      <h3>Test</h3>
+    <div className="p-16 font-sans">
       <h1 className="text-5xl font-bold text-center">Studio Ghibli Films</h1>
       <Form reloadDocument method="get" className="flex justify-center py-5">
         <label htmlFor="search" className="font-bold">
@@ -39,7 +38,7 @@ export default function Films() {
           Search
         </button>
       </Form>
-      <div className="grid grid-cols-4 gap-4  border border-red-950">
+      <div className="grid grid-cols-4 gap-4">
         {films.map((film) => (
           <Link
             key={film.id}
